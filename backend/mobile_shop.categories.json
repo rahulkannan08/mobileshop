@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5d7"
+  },
+  "name": "Smartphones",
+  "slug": "smartphones",
+  "description": "Latest mobile phones",
+  "isActive": true,
+  "displayOrder": 1,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.559Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.559Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5d8"
+  },
+  "name": "Budget Phones",
+  "slug": "budget-phones",
+  "description": "Affordable smartphones under ₹15,000",
+  "isActive": true,
+  "displayOrder": 2,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.559Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.559Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5d9"
+  },
+  "name": "Mid-Range",
+  "slug": "mid-range",
+  "description": "Smartphones between ₹15,000 - ₹30,000",
+  "isActive": true,
+  "displayOrder": 3,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.559Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.559Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5da"
+  },
+  "name": "Flagship",
+  "slug": "flagship",
+  "description": "Premium phones above ₹30,000",
+  "isActive": true,
+  "displayOrder": 4,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.559Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.559Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5db"
+  },
+  "name": "5G Phones",
+  "slug": "5g-phones",
+  "description": "5G enabled smartphones",
+  "isActive": true,
+  "displayOrder": 5,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.559Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.559Z"
+  }
+}]

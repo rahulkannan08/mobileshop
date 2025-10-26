@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Mobile Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="brand">
+                <h1><i class="fas fa-mobile-alt"></i> Mobile Shop</h1>
+                <p>Admin Panel</p>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li>
+                        <a href="#" class="active" data-section="dashboard">
+                            <i class="fas fa-chart-line"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="products">
+                            <i class="fas fa-mobile"></i> Products
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="orders">
+                            <i class="fas fa-shopping-cart"></i> Orders
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="users">
+                            <i class="fas fa-users"></i> Users
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="categories">
+                            <i class="fas fa-tags"></i> Categories
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="brands">
+                            <i class="fas fa-building"></i> Brands
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-search">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="admin-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span id="admin-name">Admin User</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="admin-section active">
+                <div class="section-header">
+                    <h2>Dashboard Overview</h2>
+                    <div class="date-filter">
+                        <select id="date-range">
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month" selected>This Month</option>
+                            <option value="year">This Year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #e0f2fe;">
+                            <i class="fas fa-shopping-cart" style="color: #0284c7;"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Orders</h3>
+                            <p id="total-orders">0</p>
+                            <span class="trend positive">+12.5%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #dcfce7;">
+                            <i class="fas fa-rupee-sign" style="color: #16a34a;"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Revenue</h3>
+                            <p id="total-revenue">₹0</p>
+                            <span class="trend positive">+8.2%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #fee2e2;">
+                            <i class="fas fa-users" style="color: #dc2626;"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Users</h3>
+                            <p id="total-users">0</p>
+                            <span class="trend positive">+5.8%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #f3e8ff;">
+                            <i class="fas fa-mobile" style="color: #7e22ce;"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Products</h3>
+                            <p id="total-products">0</p>
+                            <span class="trend negative">-2.4%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Recent Orders -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Recent Orders</h3>
+                            <a href="#" data-section="orders" class="btn-link">View All</a>
+                        </div>
+                        <div class="recent-orders" id="recent-orders">
+                            <!-- Recent orders will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Top Products -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Top Products</h3>
+                            <a href="#" data-section="products" class="btn-link">View All</a>
+                        </div>
+                        <div class="top-products" id="top-products">
+                            <!-- Top products will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section id="products" class="admin-section">
+                <div class="section-header">
+                    <h2>Products Management</h2>
+                    <button class="btn-primary" onclick="showAddProductForm()">
+                        <i class="fas fa-plus"></i> Add Product
+                    </button>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-group">
+                        <select id="brand-filter">
+                            <option value="">All Brands</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select id="category-filter">
+                            <option value="">All Categories</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select id="stock-filter">
+                            <option value="">All Stock Status</option>
+                            <option value="in">In Stock</option>
+                            <option value="low">Low Stock</option>
+                            <option value="out">Out of Stock</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="data-table" id="products-table">
+                    <!-- Products table will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders" class="admin-section">
+                <div class="section-header">
+                    <h2>Orders Management</h2>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-group">
+                        <select id="order-status-filter">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <input type="date" id="order-date-filter">
+                    </div>
+                </div>
+
+                <div class="data-table" id="orders-table">
+                    <!-- Orders table will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Users Section -->
+            <section id="users" class="admin-section">
+                <div class="section-header">
+                    <h2>Users Management</h2>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-group">
+                        <select id="user-role-filter">
+                            <option value="">All Roles</option>
+                            <option value="customer">Customers</option>
+                            <option value="admin">Admins</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select id="user-status-filter">
+                            <option value="">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="data-table" id="users-table">
+                    <!-- Users table will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section id="categories" class="admin-section">
+                <div class="section-header">
+                    <h2>Categories Management</h2>
+                    <button class="btn-primary" onclick="showAddCategoryForm()">
+                        <i class="fas fa-plus"></i> Add Category
+                    </button>
+                </div>
+
+                <div class="data-table" id="categories-table">
+                    <!-- Categories table will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Brands Section -->
+            <section id="brands" class="admin-section">
+                <div class="section-header">
+                    <h2>Brands Management</h2>
+                    <button class="btn-primary" onclick="showAddBrandForm()">
+                        <i class="fas fa-plus"></i> Add Brand
+                    </button>
+                </div>
+
+                <div class="data-table" id="brands-table">
+                    <!-- Brands table will be loaded here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

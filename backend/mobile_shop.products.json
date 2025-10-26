@@ -1,0 +1,421 @@
+[{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5dd"
+  },
+  "name": "Samsung Galaxy S24 Ultra",
+  "slug": "samsung-galaxy-s24-ultra",
+  "description": "The most powerful Galaxy yet with AI capabilities, stunning 200MP camera, and integrated S Pen for productivity",
+  "shortDescription": "Flagship smartphone with S Pen and 200MP camera",
+  "brandId": {
+    "$oid": "68f79fcadaed440f7cb8d5ce"
+  },
+  "categoryId": {
+    "$oid": "68f79fcadaed440f7cb8d5da"
+  },
+  "sku": "SAM-S24U-256",
+  "price": 129999,
+  "comparePrice": 139999,
+  "images": [
+    "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=500"
+  ],
+  "specifications": {
+    "display": "6.8\" Dynamic AMOLED 2X, 120Hz",
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "rearCamera": "200MP + 50MP + 10MP + 12MP",
+    "frontCamera": "12MP",
+    "battery": "5000mAh",
+    "os": "Android 14, One UI 6",
+    "connectivity": [
+      "5G",
+      "WiFi 7",
+      "Bluetooth 5.3"
+    ],
+    "dimensions": "162.3 x 79 x 8.6mm",
+    "color": [
+      "Titanium Black",
+      "Titanium Gray",
+      "Titanium Violet"
+    ]
+  },
+  "features": [
+    "S Pen included",
+    "AI Photo editing",
+    "Gorilla Armor protection",
+    "45W Fast charging"
+  ],
+  "stockQuantity": 25,
+  "lowStockThreshold": 10,
+  "isActive": true,
+  "isFeatured": true,
+  "averageRating": 4.8,
+  "totalReviews": 156,
+  "tags": [],
+  "warranty": "1 Year Manufacturer Warranty",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.567Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.567Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5de"
+  },
+  "name": "iPhone 15 Pro Max",
+  "slug": "iphone-15-pro-max",
+  "description": "Premium titanium design meets A17 Pro chip. Revolutionary camera system with 5x optical zoom",
+  "shortDescription": "Premium iPhone with titanium design and Action button",
+  "brandId": {
+    "$oid": "68f79fcadaed440f7cb8d5cf"
+  },
+  "categoryId": {
+    "$oid": "68f79fcadaed440f7cb8d5da"
+  },
+  "sku": "APL-IP15PM-256",
+  "price": 159900,
+  "comparePrice": 169900,
+  "images": [
+    "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=500"
+  ],
+  "specifications": {
+    "display": "6.7\" Super Retina XDR, 120Hz ProMotion",
+    "processor": "A17 Pro chip",
+    "ram": "8GB",
+    "storage": "256GB",
+    "rearCamera": "48MP Main + 12MP Ultra Wide + 12MP Telephoto (5x)",
+    "frontCamera": "12MP TrueDepth",
+    "battery": "4422mAh",
+    "os": "iOS 17",
+    "connectivity": [
+      "5G",
+      "WiFi 6E",
+      "Bluetooth 5.3"
+    ],
+    "color": [
+      "Natural Titanium",
+      "Blue Titanium",
+      "White Titanium",
+      "Black Titanium"
+    ]
+  },
+  "features": [
+    "Action Button",
+    "Titanium design",
+    "USB-C with USB 3",
+    "Always-On display"
+  ],
+  "stockQuantity": 15,
+  "lowStockThreshold": 10,
+  "isActive": true,
+  "isFeatured": true,
+  "averageRating": 4.9,
+  "totalReviews": 203,
+  "tags": [],
+  "warranty": "1 Year Apple Care",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5df"
+  },
+  "name": "Xiaomi 14 Pro",
+  "slug": "xiaomi-14-pro",
+  "description": "Leica professional optics meet Snapdragon 8 Gen 3 flagship performance",
+  "shortDescription": "Flagship with triple Leica 50MP cameras",
+  "brandId": {
+    "$oid": "68f79fcadaed440f7cb8d5d0"
+  },
+  "categoryId": {
+    "$oid": "68f79fcadaed440f7cb8d5da"
+  },
+  "sku": "XIA-14P-256",
+  "price": 64999,
+  "comparePrice": 69999,
+  "images": [
+    "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=500"
+  ],
+  "specifications": {
+    "display": "6.73\" AMOLED, 120Hz",
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "rearCamera": "50MP Leica Main + 50MP Ultra Wide + 50MP Telephoto",
+    "frontCamera": "32MP",
+    "battery": "4880mAh",
+    "os": "Android 14, HyperOS",
+    "connectivity": [
+      "5G",
+      "WiFi 7",
+      "Bluetooth 5.4"
+    ],
+    "color": [
+      "Black",
+      "White",
+      "Titanium"
+    ]
+  },
+  "features": [
+    "Leica Professional Optics",
+    "120W HyperCharge",
+    "IP68 water resistance"
+  ],
+  "stockQuantity": 35,
+  "lowStockThreshold": 10,
+  "isActive": true,
+  "isFeatured": true,
+  "averageRating": 4.7,
+  "totalReviews": 128,
+  "tags": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5e0"
+  },
+  "name": "OnePlus 12",
+  "slug": "oneplus-12",
+  "description": "Fast and smooth flagship experience with Hasselblad partnership",
+  "shortDescription": "Flagship killer with 100W fast charging",
+  "brandId": {
+    "$oid": "68f79fcadaed440f7cb8d5d1"
+  },
+  "categoryId": {
+    "$oid": "68f79fcadaed440f7cb8d5da"
+  },
+  "sku": "ONE-12-256",
+  "price": 64999,
+  "comparePrice": 69999,
+  "images": [
+    "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500"
+  ],
+  "specifications": {
+    "display": "6.82\" LTPO AMOLED, 120Hz",
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "rearCamera": "50MP Main + 48MP Ultra Wide + 64MP Telephoto",
+    "frontCamera": "32MP",
+    "battery": "5400mAh",
+    "os": "Android 14, OxygenOS 14",
+    "connectivity": [],
+    "color": []
+  },
+  "features": [
+    "100W SUPERVOOC",
+    "Hasselblad cameras",
+    "Alert Slider"
+  ],
+  "stockQuantity": 40,
+  "lowStockThreshold": 10,
+  "isActive": true,
+  "isFeatured": true,
+  "averageRating": 4.6,
+  "totalReviews": 94,
+  "tags": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5e1"
+  },
+  "name": "Samsung Galaxy A54 5G",
+  "slug": "samsung-galaxy-a54-5g",
+  "description": "Awesome mid-range phone with flagship-level camera and display",
+  "shortDescription": "Best-selling mid-range with 120Hz AMOLED",
+  "brandId": {
+    "$oid": "68f79fcadaed440f7cb8d5ce"
+  },
+  "categoryId": {
+    "$oid": "68f79fcadaed440f7cb8d5d9"
+  },
+  "sku": "SAM-A54-128",
+  "price": 34999,
+  "comparePrice": 39999,
+  "images": [
+    "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=500"
+  ],
+  "specifications": {
+    "display": "6.4\" Super AMOLED, 120Hz",
+    "processor": "Exynos 1380",
+    "ram": "8GB",
+    "storage": "128GB",
+    "rearCamera": "50MP + 12MP + 5MP",
+    "frontCamera": "32MP",
+    "battery": "5000mAh",
+    "os": "Android 14, One UI 6",
+    "connectivity": [],
+    "color": []
+  },
+  "features": [],
+  "stockQuantity": 50,
+  "lowStockThreshold": 10,
+  "isActive": true,
+  "isFeatured": false,
+  "averageRating": 4.5,
+  "totalReviews": 187,
+  "tags": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5e2"
+  },
+  "name": "Realme GT 6",
+  "slug": "realme-gt-6",
+  "description": "Flagship performance at mid-range price with Snapdragon power",
+  "shortDescription": "Performance beast with 120W charging",
+  "brandId": {
+    "$oid": "68f79fcadaed440f7cb8d5d2"
+  },
+  "categoryId": {
+    "$oid": "68f79fcadaed440f7cb8d5d9"
+  },
+  "sku": "RLM-GT6-256",
+  "price": 35999,
+  "comparePrice": 39999,
+  "images": [
+    "https://images.unsplash.com/photo-1592286927505-b7f8cac0e3f1?w=500"
+  ],
+  "specifications": {
+    "display": "6.78\" AMOLED, 120Hz",
+    "processor": "Snapdragon 8s Gen 3",
+    "ram": "8GB",
+    "storage": "256GB",
+    "battery": "5500mAh",
+    "connectivity": [],
+    "color": []
+  },
+  "features": [],
+  "stockQuantity": 45,
+  "lowStockThreshold": 10,
+  "isActive": true,
+  "isFeatured": false,
+  "averageRating": 4.4,
+  "totalReviews": 76,
+  "tags": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5e3"
+  },
+  "name": "Redmi Note 13 Pro+",
+  "slug": "redmi-note-13-pro-plus",
+  "description": "200MP flagship camera in affordable package",
+  "shortDescription": "Best camera phone under 30K",
+  "brandId": {
+    "$oid": "68f79fcadaed440f7cb8d5d0"
+  },
+  "categoryId": {
+    "$oid": "68f79fcadaed440f7cb8d5d9"
+  },
+  "sku": "XIA-RN13P-256",
+  "price": 27999,
+  "comparePrice": 31999,
+  "images": [
+    "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=500"
+  ],
+  "specifications": {
+    "display": "6.67\" AMOLED, 120Hz",
+    "processor": "MediaTek Dimensity 7200",
+    "ram": "8GB",
+    "storage": "256GB",
+    "battery": "5000mAh",
+    "connectivity": [],
+    "color": []
+  },
+  "features": [],
+  "stockQuantity": 60,
+  "lowStockThreshold": 10,
+  "isActive": true,
+  "isFeatured": false,
+  "averageRating": 4.3,
+  "totalReviews": 142,
+  "tags": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5e4"
+  },
+  "name": "Realme Narzo 60 Pro",
+  "slug": "realme-narzo-60-pro",
+  "description": "Gaming-focused budget phone with 100MP camera",
+  "shortDescription": "Best gaming phone under 25K",
+  "brandId": {
+    "$oid": "68f79fcadaed440f7cb8d5d2"
+  },
+  "categoryId": {
+    "$oid": "68f79fcadaed440f7cb8d5d8"
+  },
+  "sku": "RLM-N60P-128",
+  "price": 21999,
+  "comparePrice": 24999,
+  "images": [
+    "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=500"
+  ],
+  "specifications": {
+    "display": "6.7\" AMOLED, 120Hz",
+    "processor": "MediaTek Dimensity 7050",
+    "ram": "8GB",
+    "storage": "128GB",
+    "battery": "5000mAh",
+    "connectivity": [],
+    "color": []
+  },
+  "features": [],
+  "stockQuantity": 70,
+  "lowStockThreshold": 10,
+  "isActive": true,
+  "isFeatured": false,
+  "averageRating": 4.2,
+  "totalReviews": 98,
+  "tags": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.568Z"
+  }
+}]

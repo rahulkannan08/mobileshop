@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5ce"
+  },
+  "name": "Samsung",
+  "description": "South Korean electronics giant",
+  "isActive": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5cf"
+  },
+  "name": "Apple",
+  "description": "Premium smartphones and technology",
+  "isActive": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5d0"
+  },
+  "name": "Xiaomi",
+  "description": "Chinese smartphone manufacturer",
+  "isActive": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5d1"
+  },
+  "name": "OnePlus",
+  "description": "Flagship killer smartphones",
+  "isActive": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5d2"
+  },
+  "name": "Realme",
+  "description": "Youth-focused smartphone brand",
+  "isActive": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5d3"
+  },
+  "name": "Oppo",
+  "description": "Innovation in mobile technology",
+  "isActive": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5d4"
+  },
+  "name": "Vivo",
+  "description": "Camera-focused smartphones",
+  "isActive": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5d5"
+  },
+  "name": "Motorola",
+  "description": "Classic American brand",
+  "isActive": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.554Z"
+  }
+}]
