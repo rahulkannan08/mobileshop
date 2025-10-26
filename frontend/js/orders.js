@@ -10,9 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Check Authentication
 function checkAuth() {
-    const token = localStorage.getItem('token');
+    // prefer shared helper if available
+    if (typeof isAuthenticated === 'function') {
+        if (!isAuthenticated()) {
+            const redirect = encodeURIComponent(window.location.pathname + window.location.search);
+            window.location.href = `login.html?redirect=${redirect}`;
+        }
+        return;
+    }
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
     if (!token) {
-        window.location.href = 'login.html';
+        const redirect = encodeURIComponent(window.location.pathname + window.location.search);
+        window.location.href = `login.html?redirect=${redirect}`;
     }
 }
 
