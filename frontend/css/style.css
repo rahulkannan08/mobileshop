@@ -61,6 +61,56 @@ body {
     text-decoration: none;
 }
 
+/* Main navigation (used across pages) */
+.main-nav {
+    display: flex;
+    gap: 1rem 1.25rem;
+    align-items: center;
+    justify-content: center;
+}
+.main-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.18s, color 0.18s, transform 0.12s;
+}
+.main-nav a:hover {
+    color: var(--white);
+    background-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+.main-nav a.active {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+/* Auth area in header */
+.auth-area {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.auth-area .btn-link {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+.auth-area .user-name {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-right: 0.5rem;
+}
+
+/* Admin page top header spacing tweak */
+.admin-top .header-content {
+    padding: 0.6rem 0;
+}
+
 .nav-list {
     display: flex;
     list-style: none;

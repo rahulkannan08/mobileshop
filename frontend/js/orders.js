@@ -42,7 +42,7 @@ function initializeView() {
 
 // Load Orders List
 async function loadOrders(statusFilter = '') {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 
     try {
         let url = `${API_URL}/orders`;
@@ -109,7 +109,7 @@ function displayOrders(orders) {
 
 // Load Order Details
 async function loadOrderDetails(orderId) {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 
     try {
         const response = await fetch(`${API_URL}/orders/${orderId}`, {
@@ -237,7 +237,7 @@ function filterOrders() {
 
 // Search Order by Number
 async function searchOrderByNumber(orderNumber) {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 
     try {
         const response = await fetch(`${API_URL}/orders/search?orderNumber=${orderNumber}`, {
@@ -261,7 +261,7 @@ async function searchOrderByNumber(orderNumber) {
 
 // Update Cart Count
 async function updateCartCount() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
     const cartCountEl = document.getElementById('cart-count');
     if (!token || !cartCountEl) return;
 

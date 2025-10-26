@@ -1,24 +1,38 @@
 // Check if user is logged in and is an admin
+const APP_API_BASE = (typeof API_BASE !== 'undefined') ? API_BASE : 'http://localhost:5000';
 document.addEventListener('DOMContentLoaded', () => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-        window.location.href = 'login.html';
+    // prefer shared helper
+    if (typeof isAuthenticated === 'function' && !isAuthenticated()) {
+        const redirect = encodeURIComponent(window.location.pathname + window.location.search);
+        window.location.href = `login.html?redirect=${redirect}`;
         return;
     }
 
-    // Verify admin status
-    fetch('http://localhost:3000/api/users/profile', {
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+    if (!token) {
+        const redirect = encodeURIComponent(window.location.pathname + window.location.search);
+        window.location.href = `login.html?redirect=${redirect}`;
+        return;
+    }
+
+    // Verify admin status using backend auth profile
+    fetch(`${APP_API_BASE}/api/auth/profile`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
     })
     .then(res => res.json())
-    .then(data => {
-        if (!data.isAdmin) {
+    .then(result => {
+        const data = result && result.user ? result.user : result;
+        // role may be 'admin' or a boolean flag
+        const role = data && (data.role || data.userType || data.isAdmin);
+        const isAdmin = (role === 'admin') || (data && data.isAdmin === true);
+        if (!isAdmin) {
             window.location.href = 'index.html';
             return;
         }
-        document.getElementById('admin-name').textContent = data.name;
+        document.getElementById('admin-name').textContent = (data.firstName || data.name || 'Admin');
+        // load admin data (best-effort, handle missing endpoints gracefully)
         loadDashboardData();
         loadProducts();
         loadOrders();
@@ -27,8 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
         loadBrands();
     })
     .catch(err => {
-        console.error(err);
-        window.location.href = 'login.html';
+        console.error('Admin auth error', err);
+        const redirect = encodeURIComponent(window.location.pathname + window.location.search);
+        window.location.href = `login.html?redirect=${redirect}`;
     });
 
     // Add event listeners for navigation
@@ -72,21 +87,22 @@ function loadDashboardData() {
     const dateRange = document.getElementById('date-range').value;
 
     // Load statistics
-    fetch(`http://localhost:3000/api/admin/stats?range=${dateRange}`, {
+    fetch(`${APP_API_BASE}/api/admin/dashboard?range=${dateRange}`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
     })
     .then(res => res.json())
     .then(data => {
-        document.getElementById('total-orders').textContent = data.totalOrders;
-        document.getElementById('total-revenue').textContent = `₹${data.totalRevenue.toLocaleString()}`;
-        document.getElementById('total-users').textContent = data.totalUsers;
-        document.getElementById('total-products').textContent = data.totalProducts;
+        // backend returns analytics object
+        const analytics = (data && data.analytics) ? data.analytics : data;
+        document.getElementById('total-orders').textContent = analytics.totalOrders || 0;
+        document.getElementById('total-revenue').textContent = `₹${(analytics.totalRevenue || analytics.totalSales || 0).toLocaleString()}`;
+        document.getElementById('total-users').textContent = analytics.totalUsers || 0;
+        document.getElementById('total-products').textContent = analytics.totalProducts || 0;
 
-        // Load recent orders
+        // Load recent orders and top products where available
         loadRecentOrders();
-        // Load top products
         loadTopProducts();
     })
     .catch(err => console.error('Error loading dashboard stats:', err));
@@ -94,7 +110,7 @@ function loadDashboardData() {
 
 function loadRecentOrders() {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:3000/api/admin/recent-orders', {
+    fetch(`${APP_API_BASE}/api/admin/recent-orders`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -122,7 +138,7 @@ function loadRecentOrders() {
 
 function loadTopProducts() {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:3000/api/admin/top-products', {
+    fetch(`${APP_API_BASE}/api/admin/top-products`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -149,7 +165,7 @@ function loadTopProducts() {
 // Products Management
 function loadProducts() {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:3000/api/admin/products', {
+    fetch(`${APP_API_BASE}/api/products`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -199,7 +215,7 @@ function loadProducts() {
 // Orders Management
 function loadOrders() {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:3000/api/admin/orders', {
+    fetch(`${APP_API_BASE}/api/orders`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -252,7 +268,7 @@ function loadOrders() {
 // Users Management
 function loadUsers() {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:3000/api/admin/users', {
+    fetch(`${APP_API_BASE}/api/admin/users`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -300,7 +316,7 @@ function loadUsers() {
 // Categories Management
 function loadCategories() {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:3000/api/categories', {
+    fetch(`${APP_API_BASE}/api/categories`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -344,7 +360,7 @@ function loadCategories() {
 // Brands Management
 function loadBrands() {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:3000/api/brands', {
+    fetch(`${APP_API_BASE}/api/brands`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -402,7 +418,7 @@ function deleteProduct(productId) {
     if (!confirm('Are you sure you want to delete this product?')) return;
 
     const token = localStorage.getItem('token');
-    fetch(`http://localhost:3000/api/admin/products/${productId}`, {
+    fetch(`${APP_API_BASE}/api/admin/products/${productId}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -426,7 +442,7 @@ function viewOrderDetails(orderId) {
 
 function updateOrderStatus(orderId, status) {
     const token = localStorage.getItem('token');
-    fetch(`http://localhost:3000/api/admin/orders/${orderId}/status`, {
+    fetch(`${APP_API_BASE}/api/admin/orders/${orderId}/status`, {
         method: 'PATCH',
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -444,7 +460,7 @@ function updateOrderStatus(orderId, status) {
 // User Management Functions
 function toggleUserStatus(userId) {
     const token = localStorage.getItem('token');
-    fetch(`http://localhost:3000/api/admin/users/${userId}/toggle-status`, {
+    fetch(`${APP_API_BASE}/api/admin/users/${userId}/toggle-status`, {
         method: 'PATCH',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -459,7 +475,7 @@ function toggleUserStatus(userId) {
 
 function toggleUserRole(userId) {
     const token = localStorage.getItem('token');
-    fetch(`http://localhost:3000/api/admin/users/${userId}/toggle-role`, {
+    fetch(`${APP_API_BASE}/api/admin/users/${userId}/toggle-role`, {
         method: 'PATCH',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -487,7 +503,7 @@ function deleteCategory(categoryId) {
     if (!confirm('Are you sure you want to delete this category?')) return;
 
     const token = localStorage.getItem('token');
-    fetch(`http://localhost:3000/api/admin/categories/${categoryId}`, {
+    fetch(`${APP_API_BASE}/api/admin/categories/${categoryId}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -518,7 +534,7 @@ function deleteBrand(brandId) {
     if (!confirm('Are you sure you want to delete this brand?')) return;
 
     const token = localStorage.getItem('token');
-    fetch(`http://localhost:3000/api/admin/brands/${brandId}`, {
+    fetch(`${APP_API_BASE}/api/admin/brands/${brandId}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`

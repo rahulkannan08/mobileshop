@@ -13,15 +13,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Check Authentication
 function checkAuth() {
-    const token = localStorage.getItem('token');
+    if (typeof isAuthenticated === 'function') {
+        if (!isAuthenticated()) {
+            const redirect = encodeURIComponent(window.location.pathname + window.location.search);
+            window.location.href = `login.html?redirect=${redirect}`;
+        }
+        return;
+    }
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
     if (!token) {
-        window.location.href = 'login.html';
+        const redirect = encodeURIComponent(window.location.pathname + window.location.search);
+        window.location.href = `login.html?redirect=${redirect}`;
     }
 }
 
 // Load User Profile
 async function loadUserProfile() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 
     try {
         const response = await fetch(`${API_URL}/auth/profile`, {
@@ -54,7 +62,7 @@ function displayUserProfile(user) {
 
 // Load Addresses
 async function loadAddresses() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 
     try {
         const response = await fetch(`${API_URL}/users/addresses`, {
@@ -101,7 +109,7 @@ function displayAddresses(addresses) {
 
 // Load Orders
 async function loadOrders() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 
     try {
         const response = await fetch(`${API_URL}/orders`, {
@@ -200,7 +208,7 @@ function switchTab(tabId) {
 // Update Profile
 async function updateProfile(e) {
     e.preventDefault();
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 
     const profileData = {
         firstName: document.getElementById('firstName').value,
@@ -237,7 +245,7 @@ async function updateProfile(e) {
 // Update Password
 async function updatePassword(e) {
     e.preventDefault();
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 
     const currentPassword = document.getElementById('currentPassword').value;
     const newPassword = document.getElementById('newPassword').value;
@@ -286,7 +294,7 @@ function showAddAddressForm() {
 async function deleteAddress(addressId) {
     if (!confirm('Are you sure you want to delete this address?')) return;
 
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 
     try {
         const response = await fetch(`${API_URL}/users/addresses/${addressId}`, {
@@ -310,7 +318,7 @@ async function deleteAddress(addressId) {
 
 // Update Cart Count
 async function updateCartCount() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
     const cartCountEl = document.getElementById('cart-count');
     if (!token || !cartCountEl) return;
 
@@ -331,6 +339,8 @@ async function updateCartCount() {
 function logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('user');
     window.location.href = 'login.html';
 }
 

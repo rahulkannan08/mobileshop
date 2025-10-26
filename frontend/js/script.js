@@ -2,6 +2,15 @@
 let currentPage = 1;
 let filters = { search: '', brand: '', priceRange: '', sortBy: 'newest' };
 
+// Auth helpers: prefer shared place for token checks
+function getToken() {
+  return localStorage.getItem('token') || sessionStorage.getItem('token') || null;
+}
+
+function isAuthenticated() {
+  return !!getToken();
+}
+
 // Initialize app
 document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
