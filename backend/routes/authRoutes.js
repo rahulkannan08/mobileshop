@@ -10,6 +10,7 @@ const generateToken = (id) => {
         console.warn('Warning: JWT_SECRET is not set. Using insecure development fallback secret. Set JWT_SECRET in production.');
     }
     return jwt.sign({ id }, secret, {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRE || '7d'
     });
 };

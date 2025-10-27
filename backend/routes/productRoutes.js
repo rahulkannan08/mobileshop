@@ -25,6 +25,7 @@ router.get('/', async (req, res) => {
         const products = await Product.find(query)
             .populate('brandId', 'name logo')
             .populate('categoryId', 'name')
+            .populate('brandId categoryId')
             .sort(sort)
             .limit(limit * 1)
             .skip((page - 1) * limit)
@@ -42,6 +43,7 @@ router.get('/', async (req, res) => {
         res.json({
             success: true,
             products: mappedProducts,
+            products,
             pagination: {
                 currentPage: Number(page),
                 totalPages: Math.ceil(total / limit),

@@ -115,3 +115,4 @@ router.get('/top-products', authenticateToken, authorizeRoles('admin'), async (r
 });
 
 module.exports = router;
+module.exports = router;

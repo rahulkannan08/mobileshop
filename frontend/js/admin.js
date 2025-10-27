@@ -118,6 +118,7 @@ function loadRecentOrders() {
     .then(res => res.json())
     .then(ordersData => {
         const orders = Array.isArray(ordersData) ? ordersData : (ordersData.recentOrders || ordersData.orders || ordersData);
+    .then(orders => {
         const container = document.getElementById('recent-orders');
         container.innerHTML = orders.map(order => `
             <div class="order-item">
@@ -147,6 +148,7 @@ function loadTopProducts() {
     .then(res => res.json())
     .then(productsData => {
         const products = Array.isArray(productsData) ? productsData : (productsData.products || productsData.topProducts || productsData);
+    .then(products => {
         const container = document.getElementById('top-products');
         container.innerHTML = products.map(product => `
             <div class="product-item">
@@ -175,6 +177,7 @@ function loadProducts() {
     .then(res => res.json())
     .then(productsData => {
         const products = Array.isArray(productsData) ? productsData : (productsData.products || productsData.data || productsData);
+    .then(products => {
         const table = document.getElementById('products-table');
         table.innerHTML = `
             <table>
@@ -198,6 +201,12 @@ function loadProducts() {
                             <td>${product.category?.name || (product.categoryId?.name) || 'Unassigned'}</td>
                             <td>₹${(product.price || 0).toLocaleString()}</td>
                             <td>${product.stockQuantity || product.stock || 0}</td>
+                            <td><img src="${product.images[0]}" alt="${product.name}" width="50"></td>
+                            <td>${product.name}</td>
+                            <td>${product.brand.name}</td>
+                            <td>${product.category.name}</td>
+                            <td>₹${product.price.toLocaleString()}</td>
+                            <td>${product.stock}</td>
                             <td>
                                 <button onclick="editProduct('${product._id}')" class="btn-icon">
                                     <i class="fas fa-edit"></i>
@@ -226,6 +235,7 @@ function loadOrders() {
     .then(res => res.json())
     .then(ordersData => {
         const orders = Array.isArray(ordersData) ? ordersData : (ordersData.orders || ordersData.data || ordersData);
+    .then(orders => {
         const table = document.getElementById('orders-table');
         table.innerHTML = `
             <table>
@@ -280,6 +290,7 @@ function loadUsers() {
     .then(res => res.json())
     .then(usersData => {
         const users = Array.isArray(usersData) ? usersData : (usersData.users || usersData.data || usersData);
+    .then(users => {
         const table = document.getElementById('users-table');
         table.innerHTML = `
             <table>
@@ -329,6 +340,7 @@ function loadCategories() {
     .then(res => res.json())
     .then(categoriesData => {
         const categories = Array.isArray(categoriesData) ? categoriesData : (categoriesData.categories || categoriesData.data || categoriesData);
+    .then(categories => {
         const table = document.getElementById('categories-table');
         table.innerHTML = `
             <table>
@@ -374,6 +386,7 @@ function loadBrands() {
     .then(res => res.json())
     .then(brandsData => {
         const brands = Array.isArray(brandsData) ? brandsData : (brandsData.brands || brandsData.data || brandsData);
+    .then(brands => {
         const table = document.getElementById('brands-table');
         table.innerHTML = `
             <table>
@@ -390,6 +403,7 @@ function loadBrands() {
                     ${brands.map(brand => `
                         <tr>
                             <td><img src="${brand.logo ? (brand.logo.startsWith('http') ? brand.logo : `${APP_API_BASE}/${brand.logo}`) : 'https://via.placeholder.com/40'}" alt="${brand.name}" width="40"></td>
+                            <td><img src="${brand.logo}" alt="${brand.name}" width="40"></td>
                             <td>${brand.name}</td>
                             <td>${brand.productCount || 0}</td>
                             <td>${new Date(brand.createdAt).toLocaleDateString()}</td>
