@@ -23,16 +23,26 @@ router.get('/', async (req, res) => {
         sort[sortBy] = sortOrder === 'desc' ? -1 : 1;
 
         const products = await Product.find(query)
+            .populate('brandId', 'name logo')
+            .populate('categoryId', 'name')
             .populate('brandId categoryId')
             .sort(sort)
             .limit(limit * 1)
             .skip((page - 1) * limit)
             .lean();
 
+        // Map populated fields to match frontend expectations
+        const mappedProducts = products.map(p => ({
+            ...p,
+            brand: p.brandId,
+            category: p.categoryId
+        }));
+
         const total = await Product.countDocuments(query);
 
         res.json({
             success: true,
+            products: mappedProducts,
             products,
             pagination: {
                 currentPage: Number(page),
