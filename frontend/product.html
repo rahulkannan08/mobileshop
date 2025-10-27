@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Mobile Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="index.html"><i class="fas fa-mobile-alt"></i> Mobile Shop</a></h1>
+                </div>
+
+                <nav class="main-nav">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#products">Products</a>
+                    <a href="cart.html">Cart</a>
+                    <a href="orders.html">Orders</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="admin.html">Admin</a>
+                </nav>
+                <!-- auth area rendered by auth-ui.js -->
+                <div id="auth-area" style="margin-right:12px;"></div>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="user-btn"><i class="fas fa-user"></i></button>
+                    <button class="icon-btn cart-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-page">
+        <div class="container">
+            <div class="product-container">
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img id="main-product-image" src="" alt="">
+                    </div>
+                    <div class="thumbnail-images" id="thumbnail-images"></div>
+                </div>
+
+                <div class="product-details">
+                    <h1 id="product-name"></h1>
+                    <div class="product-rating">
+                        <span class="stars" id="product-stars"></span>
+                        <span class="review-count" id="review-count"></span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price" id="current-price"></span>
+                        <span class="original-price" id="original-price"></span>
+                        <span class="discount" id="discount"></span>
+                    </div>
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button onclick="decreaseQty()">-</button>
+                            <input type="number" id="quantity" value="1" min="1">
+                            <button onclick="increaseQty()">+</button>
+                        </div>
+                        <button class="btn-add-cart" id="btn-add-cart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn-wishlist" onclick="addToWishlist()">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-specs">
+                        <h3>Specifications</h3>
+                        <table id="specs-table"></table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-section">
+                <h2>Customer Reviews</h2>
+                <div id="reviews-list"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- load shared config + auth UI + main frontend helpers first -->
+    <script src="js/config.js"></script>
+    <script src="js/auth-ui.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/mini-cart.js"></script>
+</body>
+</html>

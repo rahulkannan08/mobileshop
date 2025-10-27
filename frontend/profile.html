@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Mobile Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="index.html"><i class="fas fa-mobile-alt"></i> Mobile Shop</a></h1>
+                </div>
+                <nav class="main-nav">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#products">Products</a>
+                    <a href="cart.html">Cart</a>
+                    <a href="orders.html">Orders</a>
+                    <a href="profile.html" class="active">Profile</a>
+                    <a href="admin.html">Admin</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="icon-btn cart-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-page">
+        <div class="container">
+            <div class="profile-content">
+                <!-- Profile Sidebar -->
+                <aside class="profile-sidebar">
+                    <div class="user-info">
+                        <div class="avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 id="user-name">Loading...</h3>
+                    </div>
+                    <nav class="profile-nav">
+                        <ul>
+                            <li>
+                                <a href="#" class="active" data-tab="personal-info">
+                                    <i class="fas fa-user"></i> Personal Information
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-tab="addresses">
+                                    <i class="fas fa-map-marker-alt"></i> My Addresses
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-tab="orders">
+                                    <i class="fas fa-box"></i> Order History
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-tab="password">
+                                    <i class="fas fa-lock"></i> Change Password
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="logout()">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Profile Main Content -->
+                <div class="profile-main">
+                    <!-- Personal Information Section -->
+                    <section id="personal-info" class="profile-section active">
+                        <h2>Personal Information</h2>
+                        <form id="profile-form" class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phoneNumber">Phone Number</label>
+                                    <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="dateOfBirth">Date of Birth</label>
+                                    <input type="date" id="dateOfBirth" name="dateOfBirth">
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gender</label>
+                                    <select id="gender" name="gender">
+                                        <option value="">Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                        </form>
+                    </section>
+
+                    <!-- Addresses Section -->
+                    <section id="addresses" class="profile-section">
+                        <h2>My Addresses</h2>
+                        <button class="btn-add-address" onclick="showAddAddressForm()">
+                            <i class="fas fa-plus"></i> Add New Address
+                        </button>
+                        <div id="addresses-list" class="addresses-list">
+                            <!-- Addresses will be loaded here -->
+                        </div>
+                        <div id="address-form-container" class="address-form-container hidden">
+                            <form id="address-form" class="address-form">
+                                <!-- Address form fields will be similar to checkout page -->
+                            </form>
+                        </div>
+                    </section>
+
+                    <!-- Orders Section -->
+                    <section id="orders" class="profile-section">
+                        <h2>Order History</h2>
+                        <div id="orders-list" class="orders-list">
+                            <!-- Orders will be loaded here -->
+                        </div>
+                    </section>
+
+                    <!-- Change Password Section -->
+                    <section id="password" class="profile-section">
+                        <h2>Change Password</h2>
+                        <form id="password-form" class="profile-form">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" id="confirmPassword" required>
+                            </div>
+                            <button type="submit" class="btn-primary">Update Password</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mobile Shop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth-ui.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/mini-cart.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

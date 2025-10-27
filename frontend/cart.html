@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Mobile Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="index.html"><i class="fas fa-mobile-alt"></i> Mobile Shop</a></h1>
+                </div>
+                <nav class="main-nav">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#products">Products</a>
+                    <a href="cart.html" class="active">Cart</a>
+                    <a href="orders.html">Orders</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="admin.html">Admin</a>
+                </nav>
+                <div class="header-actions">
+                    <!-- auth-ui.js will render login/logout here -->
+                    <div id="auth-area" style="display:inline-block; margin-right:12px;"></div>
+                    <button class="icon-btn" id="user-btn"><i class="fas fa-user"></i></button>
+                    <a href="cart.html" class="icon-btn" title="Cart">
+                      <i class="fas fa-shopping-cart"></i>
+                      <span id="cart-count" class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-page">
+        <div class="container">
+            <h1 class="page-title">Shopping Cart</h1>
+            <div class="cart-content">
+                <div class="cart-items-section">
+                    <div id="cart-items" class="cart-items"></div>
+                </div>
+                <div class="cart-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">₹0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax (18%):</span>
+                        <span id="tax">₹0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="shipping">₹0</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">₹0</span>
+                    </div>
+                    <button class="btn-checkout" onclick="proceedToCheckout()">
+                        Proceed to Checkout <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <a href="index.html" class="continue-shopping">
+                        <i class="fas fa-arrow-left"></i> Continue Shopping
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth-ui.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/mini-cart.js"></script>
+</body>
+</html>

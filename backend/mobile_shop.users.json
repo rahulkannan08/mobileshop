@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5c3"
+  },
+  "firstName": "Admin",
+  "lastName": "User",
+  "email": "admin@mobileshop.com",
+  "password": "$2b$10$6slIOTxPjr8loYd3u8mJ6esgYjJrFQTmCU9ku3RcKVqV9I.PuEPIm",
+  "phoneNumber": "9999999999",
+  "role": "admin",
+  "isVerified": true,
+  "wishlist": [],
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.435Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.435Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f79fcadaed440f7cb8d5cc"
+  },
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "customer@test.com",
+  "password": "$2b$10$tYBCqsvQdQpmM6agM.NQcOX.T07OWE9cnGGErsLRrvAvjJJv6rHH2",
+  "phoneNumber": "8888888888",
+  "role": "customer",
+  "isVerified": true,
+  "wishlist": [],
+  "createdAt": {
+    "$date": "2025-10-21T14:59:22.499Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-21T14:59:22.499Z"
+  },
+  "__v": 0
+}]
